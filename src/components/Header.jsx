@@ -5,6 +5,8 @@ import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import logo from '../assets/img/logo-event-yuk.png';
+
 const Header = ({ logoLink }) => {
 
     const { enqueueSnackbar } = useSnackbar();
@@ -44,7 +46,10 @@ const Header = ({ logoLink }) => {
         <AppBar position="static" color="secondary">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Box flexGrow="1">
+                    <Box flexGrow="1" display="flex" alignItems="center">
+                        <Box mr={1}>
+                            <img src={logo} alt="logo" style={{ maxHeight: 40 }} />
+                        </Box>
                         <Typography
                             variant="h6"
                             noWrap
@@ -56,6 +61,12 @@ const Header = ({ logoLink }) => {
                         >
                             Event YUK!
                         </Typography>
+                    </Box>
+                    <Box mr={2}>
+                        <Button onClick={() => navigate('/')}>beranda</Button>
+                    </Box>
+                    <Box mr={2}>
+                        <Button onClick={() => navigate('/about')}>tentang</Button>
                     </Box>
                     {user.isLoggedIn ?
                         <Box>

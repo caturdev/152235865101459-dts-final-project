@@ -2,6 +2,7 @@ import { Box, Button, Card, CardContent, Divider, Typography } from "@mui/materi
 import { Fragment, useEffect } from "react";
 import Body from "../components/Body";
 import EventCarousel from "../components/carousel/EventCarousel";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Section from "../components/Section";
@@ -38,6 +39,7 @@ const Home = () => {
                         </Box>
                     </Section>
                 </Main>
+                <Footer />
             </Body>
         </Fragment>
     );
