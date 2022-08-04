@@ -1,7 +1,7 @@
 import { Box, Button, Container, Divider, Grid, Typography } from "@mui/material";
 import { Fragment } from "react";
 
-import logo from '../assets/img/logo-event-yuk.png';
+import logo from '../assets/img/logo-event-yuk-name.png';
 
 const Footer = () => {
     return (
@@ -17,7 +17,7 @@ const Footer = () => {
                                 <Button> Tentang nonton YUK! </Button>
                             </Grid>
                             <Grid item xs={12} md={4} textAlign="center">
-                                <Button> Tentang nonton YUK! </Button>
+                                <Button> Author </Button>
                             </Grid>
                         </Grid>
                     </Box>

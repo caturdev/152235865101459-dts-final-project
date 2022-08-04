@@ -4,7 +4,7 @@ import { Fragment } from "react";
 const Section = ({ children }) => {
     return (
         <Fragment>
-            <Box my={5}>
+            <Box py={5}>
                 {children}
             </Box>
         </Fragment >

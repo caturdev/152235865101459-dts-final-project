@@ -1,0 +1,5 @@
+.eventBackground {
+    background-position: bottom;
+    background-size: cover;
+    background-image: url("/src/assets/img/bg-image-event.png");
+}

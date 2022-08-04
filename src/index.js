@@ -6,7 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from 'notistack';
 
-import './index.css';
+import './assets/css/index.css';
 
 const theme = createTheme({
   palette: {
