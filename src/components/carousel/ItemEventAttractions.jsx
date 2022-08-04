@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Item = ({ data }) => {
+const ItemEventAttractions = ({ data }) => {
     const navigate = useNavigate();
 
     return (
@@ -11,18 +11,17 @@ const Item = ({ data }) => {
         >
             <CardMedia
                 component="img"
-                height="200"
+                height="150"
                 image={data.images[2]['url']}
                 alt="green iguana"
             />
             <CardContent>
                 <Box>
-                    <Typography variant="body1" noWrap> {data.name} </Typography>
-                    <Typography variant="caption"> {data.dates.start.localDate} - {data.dates.start.localTime} </Typography>
+                    <Typography variant="body1" noWrap textAlign="center"> {data.name} </Typography>
                 </Box>
             </CardContent>
         </Card>
     )
 }
 
-export default Item;
+export default ItemEventAttractions;

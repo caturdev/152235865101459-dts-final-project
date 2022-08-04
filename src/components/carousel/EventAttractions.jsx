@@ -1,23 +1,13 @@
-import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
-import Item from "./Item";
 
+import { Skeleton } from "@mui/material";
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import { Skeleton } from "@mui/material";
+import ItemEventAttractions from "./ItemEventAttractions";
 
-const EventCarousel = ({ type }) => {
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const result = await axios.get(process.env.REACT_APP_ENDPOINT + 'events?apikey=' + process.env.REACT_APP_TOKEN);
-            setData(result.data._embedded.events);
-        })();
-    }, []);
+const EventAttractions = ({ data }) => {
 
     return (
         <Fragment>
@@ -45,19 +35,19 @@ const EventCarousel = ({ type }) => {
                     },
                     1080: {
                         // width: 768,
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                     },
                 }}
             >
                 {data.length ?
                     data.map((value, index) => (
                         <SwiperSlide key={index}>
-                            <Item data={value} />
+                            <ItemEventAttractions data={value} />
                         </SwiperSlide>
                     )) :
                     ['', '', '', ''].map((value, index) => (
                         <SwiperSlide key={index}>
-                            < Skeleton variant="rectangular" width='100%' height={278} />
+                            <Skeleton variant="rectangular" width='100%' height={278} />
                         </SwiperSlide>
                     ))
                 }
@@ -66,4 +56,4 @@ const EventCarousel = ({ type }) => {
     );
 }
 
-export default EventCarousel;
+export default EventAttractions;

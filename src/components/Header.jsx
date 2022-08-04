@@ -2,7 +2,7 @@ import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useSnackbar } from "notistack";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import logo from '../assets/img/logo-event-yuk.png';
@@ -27,7 +27,6 @@ const Header = ({ logoLink }) => {
                     name: user.displayName,
                     img: user.photoURL,
                 }));
-                console.log(user);
             }
         });
     }, []);
@@ -62,15 +61,28 @@ const Header = ({ logoLink }) => {
                             Event YUK!
                         </Typography>
                     </Box>
-                    <Box mr={2}>
-                        <Button onClick={() => navigate('/')}>beranda</Button>
-                    </Box>
-                    <Box mr={2}>
-                        <Button onClick={() => navigate('/about')}>tentang</Button>
-                    </Box>
+                    {user.isLoggedIn ?
+                        <Fragment>
+                            <Box mr={2}>
+                                <Button onClick={() => navigate('/')}>dashboard</Button>
+                            </Box>
+                            <Box mr={2}>
+                                <Button onClick={() => navigate('/about')}>bookmark</Button>
+                            </Box>
+                        </Fragment>
+                        :
+                        <Fragment>
+                            <Box mr={2}>
+                                <Button onClick={() => navigate('/')}>beranda</Button>
+                            </Box>
+                            <Box mr={2}>
+                                <Button onClick={() => navigate('/about')}>tentang</Button>
+                            </Box>
+                        </Fragment>
+                    }
                     {user.isLoggedIn ?
                         <Box>
-                            <Button onClick={onSignOut}>logout</Button>
+                            <Button variant="contained" color="error" onClick={onSignOut}>logout</Button>
                         </Box>
                         :
                         <Box>

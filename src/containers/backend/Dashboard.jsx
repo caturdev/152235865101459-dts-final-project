@@ -1,4 +1,6 @@
-import { Box, Button, Card, CardContent, Container, Divider, Typography } from "@mui/material"
+import SearchIcon from "@mui/icons-material/Search";
+import StarIcon from '@mui/icons-material/Star';
+import { Box, Button, Card, CardContent, Divider, IconButton, InputBase, Paper, Typography } from "@mui/material";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import Body from "../../components/Body";
@@ -12,7 +14,6 @@ const Dashboard = () => {
 
     const navigate = useNavigate();
 
-
     return (
         <Fragment>
             <Body>
@@ -20,29 +21,50 @@ const Dashboard = () => {
                 <Box className="eventBackground">
                     <Main>
                         <Section>
+                            <Box
+                                mb={5}
+                                display="flex"
+                                justifyContent="center"
+                                alignItems="center"
+                                flexDirection="column"
+                            >
+                                <Paper
+                                    component="form"
+                                    sx={{
+                                        p: '2px 4px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        width: '100%',
+                                        bgcolor: '#222831',
+                                    }}
+                                >
+                                    <InputBase
+                                        sx={{
+                                            ml: 1,
+                                            flex: 1,
+                                            color: 'whitesmoke',
+                                        }}
+                                        placeholder="Cari Event Kamu"
+                                        inputProps={{ 'aria-label': 'cari event kamu' }}
+                                    />
+                                    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                                        <SearchIcon color="primary" />
+                                    </IconButton>
+                                    <Divider
+                                        orientation="vertical"
+                                        sx={{
+                                            height: 28,
+                                            m: 0.5,
+                                            borderColor: 'GrayText'
+                                        }}
+                                    />
+                                    <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
+                                        <StarIcon color="primary" />
+                                    </IconButton>
+                                </Paper>
+                            </Box>
                             <Box mb={5}>
                                 <EventCarousel />
-                            </Box>
-                            <Box mb={30}>
-                                <Card sx={{ bgcolor: '#222831' }}>
-                                    <CardContent sx={{ textAlign: 'center', pt: 5 }}>
-                                        <Typography variant="h5" component="h2" align="center" gutterBottom> Selamat Datang Di Event YUK! </Typography>
-                                        <Typography variant="body1" align="center" gutterBottom> Temukan informasi lengkap soal event terkini, dan <strong>langsung checkout tiketnya!</strong> </Typography>
-                                        <Box mt={5} mb={3}>
-                                            <Button
-                                                variant="contained"
-                                                color="error" sx={{ minWidth: 180 }}
-                                                onClick={() => navigate('/login')}
-                                            > login sekarang </Button>
-                                            <Divider sx={{ my: 2, color: 'whitesmoke' }}> Bulum Punya Akun? </Divider>
-                                            <Button
-                                                variant="contained"
-                                                color="info" sx={{ minWidth: 180 }}
-                                                onClick={() => navigate('/registration')}
-                                            > registrasi </Button>
-                                        </Box>
-                                    </CardContent>
-                                </Card>
                             </Box>
                         </Section>
                     </Main>

@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Item = ({ data }) => {
+const ItemPriceRange = ({ data }) => {
     const navigate = useNavigate();
 
     return (
@@ -25,4 +25,4 @@ const Item = ({ data }) => {
     )
 }
 
-export default Item;
+export default ItemPriceRange;

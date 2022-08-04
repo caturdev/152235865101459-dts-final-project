@@ -10,7 +10,7 @@ const AuthFrontend = ({ children }) => {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                navigate('/home')
+                navigate('/dashboard')
             } else {
                 // user signed out
             }
